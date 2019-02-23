@@ -1,0 +1,8 @@
+<button *ngIf="auth.isLoggedIn()" class="btn btn-light mb-5" routerLink="new">
+    <i class="fas fa-plus-circle"></i> New Post
+</button>
+
+<div class="card-deck">
+    <app-post-item *ngFor="let post of posts" [post]="post"></app-post-item>
+</div>
+

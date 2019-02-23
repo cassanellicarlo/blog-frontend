@@ -1,0 +1,11 @@
+<div class="card mb-5 card-post" >
+    <img src="{{post.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title mb-0">{{post.title}}</h5>
+      <small class="text-muted">23/02/2019 - <strong>{{post.author.username}}</strong></small>
+      <p class="card-text mt-3">{{post.content.substring(0,50)}} ...</p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary btn-block" routerLink="post/{{post._id}}">Read More</button>  
+    </div>
+</div>
