@@ -10,7 +10,8 @@ import { PostService } from 'src/app/core/services/post.service';
 })
 export class PostDetailComponent implements OnInit {
 
-  post: Post;
+  post: Post = new Post();
+  loading: boolean=true;
 
   constructor(private postService: PostService, private route: ActivatedRoute) { }
 
@@ -23,6 +24,7 @@ export class PostDetailComponent implements OnInit {
     console.log(id);
 
     this.postService.getPostById(id.toString()).subscribe ( post => {
+      this.loading=false;
       this.post=post;
     });
   }

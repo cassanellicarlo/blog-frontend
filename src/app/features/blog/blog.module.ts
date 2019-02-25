@@ -8,9 +8,12 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { FormsModule } from '@angular/forms';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { CommentItemComponent } from './comment-item/comment-item.component';
+import { NewCommentComponent } from './new-comment/new-comment.component';
 
 @NgModule({
-  declarations: [PostItemComponent, PostListComponent, NewPostComponent, PostDetailComponent],
+  declarations: [PostItemComponent, PostListComponent, NewPostComponent, PostDetailComponent, CommentListComponent, CommentItemComponent, NewCommentComponent],
   imports: [
     CommonModule,
     BlogRoutingModule,
