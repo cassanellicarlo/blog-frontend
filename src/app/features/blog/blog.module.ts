@@ -7,13 +7,15 @@ import { PostListComponent } from './post-list/post-list.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { FormsModule } from '@angular/forms';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [PostItemComponent, PostListComponent, NewPostComponent, PostDetailComponent],
   imports: [
     CommonModule,
     BlogRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class BlogModule { }

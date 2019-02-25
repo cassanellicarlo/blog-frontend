@@ -11,6 +11,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
 export class PostListComponent implements OnInit {
 
   posts: Post[];
+  loading: boolean=true;
 
   constructor(private postService:PostService, private auth: AuthenticationService) { }
 
@@ -20,6 +21,7 @@ export class PostListComponent implements OnInit {
 
   getPosts (){
     this.postService.getPosts().subscribe( posts => {
+      this.loading=false;
       console.log(posts);
       this.posts=posts;
     });
