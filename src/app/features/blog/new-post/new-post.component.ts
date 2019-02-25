@@ -4,6 +4,7 @@ import { PostService } from 'src/app/core/services/post.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { Author } from 'src/app/core/models/author';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-new-post',
@@ -24,7 +25,11 @@ export class NewPostComponent implements OnInit {
     author: this.postAuthor
   };
 
-  constructor(private postService: PostService, private auth: AuthenticationService, private router: Router) { }
+  constructor(
+    private postService: PostService, 
+    private auth: AuthenticationService, 
+    private router: Router,
+    private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -35,6 +40,7 @@ export class NewPostComponent implements OnInit {
 
     this.postService.addPost(this.newPost).subscribe ( data => {
       console.log(data.message);
+      this.alertService.set("Post added!", "success");
       this.router.navigateByUrl('/blog');
     });
     

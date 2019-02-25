@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Author } from 'src/app/core/models/author';
 import { Comment } from 'src/app/core/models/comment';
 import { PostService } from 'src/app/core/services/post.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { ActivatedRoute } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-new-comment',
@@ -11,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./new-comment.component.css']
 })
 export class NewCommentComponent implements OnInit {
+
+  @Output() commentAdded: EventEmitter<any> = new EventEmitter();
 
   commentAuthor: Author = {
     id: '',
@@ -23,7 +26,11 @@ export class NewCommentComponent implements OnInit {
   };
 
 
-  constructor(private postService: PostService, private auth: AuthenticationService, private route: ActivatedRoute) { }
+  constructor(
+    private postService: PostService, 
+    private auth: AuthenticationService, 
+    private route: ActivatedRoute,
+    private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -35,6 +42,8 @@ export class NewCommentComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id'); // post id
 
     this.postService.addComment(id.toString(),this.newComment).subscribe ( data => {
+      this.alertService.set("Comment added!", "success");
+      this.commentAdded.emit();
       console.log(data.message);
     });
   }

@@ -20,6 +20,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   getPostById(){
+    this.loading=true;
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
 
