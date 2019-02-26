@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() {
+  login(event) {
     this.auth.login(this.credentials).subscribe(() => {
       this.router.navigateByUrl('/profile');
       this.alertService.set("You are now logged in!","success");

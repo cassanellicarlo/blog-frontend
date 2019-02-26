@@ -9,6 +9,7 @@ export class ButtonComponent  {
 
   @Input() label: string;
   @Input() type: string;
+  @Input() disabled: boolean;
   @Output() onClick = new EventEmitter<any>();
   
   onClickButton(event) {
