@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/core/models/post';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/core/services/post.service';
+import { Comment } from 'src/app/core/models/comment';
 
 @Component({
   selector: 'app-post-detail',
@@ -28,6 +29,11 @@ export class PostDetailComponent implements OnInit {
       this.loading=false;
       this.post=post;
     });
+  }
+
+  // Push new comment in comments array 
+  updateComments (newComment: Comment){
+    this.post.comments.push(newComment);
   }
 
 }

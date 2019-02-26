@@ -13,7 +13,7 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 })
 export class NewCommentComponent implements OnInit {
 
-  @Output() commentAdded: EventEmitter<any> = new EventEmitter();
+  @Output() commentAdded: EventEmitter<Comment> = new EventEmitter();
 
   commentAuthor: Author = {
     id: '',
@@ -41,10 +41,10 @@ export class NewCommentComponent implements OnInit {
 
     const id = this.route.snapshot.paramMap.get('id'); // post id
 
-    this.postService.addComment(id.toString(),this.newComment).subscribe ( data => {
+    this.postService.addComment(id.toString(),this.newComment).subscribe ( comment => {
       this.alertService.set("Comment added!", "success");
-      this.commentAdded.emit();
-      console.log(data.message);
+      this.commentAdded.emit(comment);
+      this.newComment.text='';
     });
   }
 

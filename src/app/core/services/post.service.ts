@@ -27,7 +27,7 @@ export class PostService {
   }
 
   // Add new comment to a post
-  addComment (id:string, newComment: Comment):Observable<any>{
+  addComment (id:string, newComment: Comment):Observable<Comment>{
     return this.api.request('post', `posts/${id}/comments`, newComment);
   }
 
