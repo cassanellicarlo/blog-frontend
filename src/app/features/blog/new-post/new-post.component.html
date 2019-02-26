@@ -1,23 +1,23 @@
 <div class="row justify-content-center">
   <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card">
-        <h5 class="card-header">New Post Form</h5>
+        <h5 class="card-header text-center">New Post Form</h5>
         <div class="card-body">
-          <form #f="ngForm" (submit)="addPost()">
-            <div class="form-group">
-              <label for="title"><small>Title</small></label>
-              <input type="title" class="form-control" name="title" placeholder="Title" [(ngModel)]="newPost.title" required>
-            </div>
-            <div class="form-group">
-              <label for="image"><small>Image URL</small></label>
-              <input type="url" class="form-control" name="image" placeholder="Image" [(ngModel)]="newPost.image" required>
-            </div>
-            <div class="form-group">
-              <label for="content"><small>Content</small></label>
-              <textarea rows="5" type="title" class="form-control" name="content" placeholder="Content" [(ngModel)]="newPost.content" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="f.invalid"><i class="fas fa-plus-circle"></i> Add Post</button>
-          </form>
+          <div class="container">
+            <form #f="ngForm" (submit)="addPost()">
+              <div class="form-group">
+                <input type="title" class="form-control text-center" name="title" placeholder="Title" [(ngModel)]="newPost.title" required>
+              </div>
+              <div class="form-group">
+                <input type="url" class="form-control text-center" name="image" placeholder="Image URL" [(ngModel)]="newPost.image" required>
+              </div>
+              <div class="form-group">
+                <textarea rows="5" type="title" class="form-control text-center" name="content" placeholder="Content" [(ngModel)]="newPost.content" required></textarea>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary btn-block" [disabled]="f.invalid"><i class="fas fa-plus-circle"></i> Add Post</button> -->
+              <app-button [label]="'Add Post'" [type]="'primary btn-block'" (onClick)="addPost($event)" [disabled]="f.invalid"></app-button>
+            </form>
+          </div>
         </div>
     </div>
   </div>
