@@ -13,7 +13,7 @@ export class PostListComponent implements OnInit {
   posts: Post[];
   loading: boolean=true;
 
-  constructor(private postService:PostService, private auth: AuthenticationService) { }
+  constructor(private postService:PostService, public auth: AuthenticationService) { }
 
   ngOnInit() {
     this.getPosts();

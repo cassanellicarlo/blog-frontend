@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
 })
 export class JumbotronComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(public auth: AuthenticationService) { }
 
   ngOnInit() {
   }

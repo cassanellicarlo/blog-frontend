@@ -4,7 +4,7 @@
         <h5 class="card-header text-center">New Post Form</h5>
         <div class="card-body">
           <div class="container">
-            <form #f="ngForm" (submit)="addPost()">
+            <form #f="ngForm" (submit)="addPost($event)">
               <div class="form-group">
                 <input type="title" class="form-control text-center" name="title" placeholder="Title" [(ngModel)]="newPost.title" required>
               </div>

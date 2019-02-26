@@ -34,7 +34,7 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPost (){
+  addPost (event){
     this.newPost.author.id=this.auth.getUserDetails()._id;
     this.newPost.author.username=this.auth.getUserDetails().name;
 

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register() {
+  register(event) {
     this.auth.register(this.credentials).subscribe(() => {
       this.router.navigateByUrl('/profile');
       this.alertService.set("You are now registered","success");

@@ -28,7 +28,7 @@ export class NewCommentComponent implements OnInit {
 
   constructor(
     private postService: PostService, 
-    private auth: AuthenticationService, 
+    public auth: AuthenticationService, 
     private route: ActivatedRoute,
     private alertService: AlertService) { }
 
